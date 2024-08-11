@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" type="image/svg" href="./images/favicon.svg" />
+
+  <title>
+    Full Stack Web Developer.
+  </title>
+  <meta name="Web Developer" content="HTML, CSS, JavaScript, React, Node js, python, databases...etc " />
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+  <header class="header" role="banner" id="top">
+    <div class="row">
+      <nav class="nav" role="navigation">
+        <ul class="nav__items">
+          <li class="nav__item"><a href="#portfolio" class="nav__link">Portfolio</a></li>
+          <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+          <li class="nav__item">
+            <a href="#about" class="nav__link">About</a>
+          </li>
+          <li class="nav__item">
+            <a href="#contact" class="nav__link">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="header__text-box row">
+      <div class="header__text">
+        <h1 class="heading-primary">
+          <span>ISAAC IKIMI</span>
+        </h1>
+        <p>A Full Stack Web Developer.</p>
+        <a href="#contact" class="btn btn--pink">Get in touch</a>
+      </div>
+    </div>
+  </header>
+
+  <main role="main">
+
+    
+    <!-- ***** skills ***** -->
+
+    <section class="skill" id="skills">
+      <div class="row">
+        <h2>Skills</h2>
+        <div class="skill__logos">
+          <img src="./images/html_css3.webp" class="skill__logo" alt="html-css" />
+          <img src="./images/JavaScript.webp" class="skill__logo" alt="JavaScript" />
+          <img src="./images/reactjs.webp" class="skill__logo" alt="Reactjs" />
+          <img src="./images/nodejs.webp" class="skill__logo" alt="Nodejs" />
+          <img src="./images/postgreSQL.webp" class="skill__logo" alt="PostgreSQL" />
+          <img src="./images/python-logo.webp" class="skill__logo" alt="Python" />
+          <img src="./images/bootstrap.webp" class="skill__logo" alt="bootstrap" />
+          <img src="./images/redux.webp" class="skill__logo" alt="redux" />
+          <img src="./images/Docker.webp" class="skill__logo" alt="Docker" />
+          <img src="./images/Redis-Logo.webp" class="skill__logo" alt="redis" />
+          <img src="./images/CI-CD.webp" class="skill__logo" alt="ci/cd" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ***** portfolio ***** -->
+
+    <section class="portfolio" id="portfolio">
+      <div class="row">
+        <h2>My Portfolio</h2>
+        <div class="portfolio__boxes">
+          <div class="portfolio__box">
+            <div class="portfolio__text">
+              <h3>Monster Search</h3>
+              <p>
+                “Monster Search” is a React web application that allows users to explore a list of monsters. Users can search for specific monsters by typing in the search bar. The app fetches monster data from an external API, making it dynamic and interactive.
+              </p>
+              <ul class="portfolio__list">
+                <li>React</li>
+                <li>JSX</li>
+                <li>CSS</li>
+              </ul>
+
+              <div class="portfolio__links">
+                <a href="https://demosus.github.io/monster-search/" target="_blank" class="link__text">
+                  Visit Site <span>&rarr;</span>
+                </a>
+                <a href="https://github.com/DEmosus/monster-search" title="View Source Code" target="_blank">
+                  <img src="./images/github.svg" class="portfolio__code" alt="GitHub">
+                </a>
+              </div>
+            </div>
+            <div class="portfolio__image-box">
+              <img src="./images/monster-search.webp" class="portfolio__image" alt="monster-search" />
+            </div>
+          </div>
+
+          <div class="portfolio__box">
+            <div class="portfolio__text">
+              <h3>Meeky Clothing</h3>
+              <p>
+                “Meeky Clothing” is a powerful React e-commerce application. Users can explore a curated selection of items, search for specific products, and securely make purchases using Stripe integration. The app also features seamless login authentication via Google Firebase. Finally, it's deployed on Netlify for a smooth user experience. 
+              </p>
+              <ul class="portfolio__list">
+                <li>React</li>
+                <li>Firebase authentication</li>
+                <li>Stripe API</li>
+              </ul>
+
+              <div class="portfolio__links">
+                <a href="https://tourmaline-souffle-9855cb.netlify.app/" target="_blank" class="link__text">
+                  Visit Site <span>&rarr;</span>
+                </a>
+                <a href="https://github.com/DEmosus/Meeky-Clothing" target="_blank" title="View Source Code">
+                  <img src="./images/github.svg" class="portfolio__code" title="View Source Code" alt="GitHub">
+                </a>
+              </div>
+            </div>
+            <div class="portfolio__image-box">
+              <img src="./images/meeky-clothing.webp" class="portfolio__image" alt="meeky-clothing" />
+            </div>
+          </div>
+
+          <div class="portfolio__box">
+            <div class="portfolio__text">
+              <h3>Face Detection App</h3>
+              <p>
+                “Face-Detection App” is a robust full-stack application. Users can upload images, and the app intelligently detects faces within those images using the Clarifai face-detection API. The frontend, built with React, provides a seamless user interface. On the backend, Node.js handles image processing, and PostgreSQL serves as the database. User authentication is secure, thanks to bcrypt hashing. Finally, the entire app is containerized using Docker for easy deployment and scalability.
+              </p>
+              <ul class="portfolio__list">
+                <li>React</li>
+                <li>Node js</li>
+                <li>PostgreSQL</li>
+                <li>Docker</li>
+              </ul>
+
+              <div class="portfolio__links">
+                <a href="#" target="_blank" class="link__text">
+                  Visit Site <span>&rarr;</span>
+                </a>
+                <a href="https://github.com/DEmosus/face-detection-app-api" target="_blank" title="View Source Code">
+                  <img src="./images/github.svg" class="portfolio__code" title="View Source Code" alt="GitHub">
+                </a>
+              </div>
+            </div>
+            <div class="portfolio__image-box">
+              <img src="./images/face-detection.webp" class="portfolio__image" alt="face-detection" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ***** About ***** -->
+
+    <section class="about" id="about">
+      <div class="row">
+        <h2>About Me</h2>
+        <div class="about__content">
+          <div class="about__text">
+            <p>
+              I am Isaac, a self-taught web developer with a passion for crafting elegant and secure digital experiences. My journey bagan with humble HTML tags and led me through the forest of CSS, mountains of Javascript, React, Node and Python. Database like PostgreSQL, redis and mongoDB are my allies in data management.<br>
+              Speed and Network optimization with minification, lazy loading, and CDNs; frontend magic through bundlers, tree shaking, and responsive images; backend sorcery involving caching, indexing, and query optimization—all scrolls of performance enhancement. <br>
+              Security, my sacred duty. Web fortifications—HTTPS, CORS, and content security policies—shielded against malevolent forces. Authentication flow—OAuth, JWTs, and secure sessions—an ancient ritual to safeguard users. And so, my journey continues—a web developer, forever learning, forever curious. Each line of code etches my legacy, and every bug conquered is a victory.
+            </p>
+            <!-- Provide a link to your resume -->
+            <a href="/images/Isaac's_CV.pdf" class="btn">My Resume</a>
+          </div>
+
+          <div class="about__photo-container">
+            <img class="about__photo" src="./images/isaac.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ***** Contact ***** -->
+
+  <section class="contact" id="contact">
+    <div class="row">
+      <h2>Get in Touch</h2>
+      <div class="contact__info">
+        <p>
+          If you're as passionate about creating exceptional digital experiences as I am, let's join forces! 
+          Whether you're seeking consultation, or to elevate your online presence or have questions, want to share advice, or simply want to say “Hi 👋,” I'm all ears!, 
+          I'd love to connect. Feel free to reach, and let's embark on a new adventure together. 🚀
+        </p>
+        <a href="esaakadevsolutions@gmail.com" class="btn">esaakadevsolutions@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ***** Footer ***** -->
+
+  <footer role="contentinfo" class="footer">
+    <div class="row">
+      <ul class="footer__social-links">
+        <li class="footer__social-link-item">
+          <a href="https://twitter.com/Esaaka044" title="Link to Twitter Profile">
+            <img src="./images/twitter.svg" class="footer__social-image" alt="Twitter">
+          </a>
+        </li>
+        <li class="footer__social-link-item">
+          <a href="https://github.com/DEmosus" title="Link to Github Profile">
+            <img src="./images/github.svg" class="footer__social-image" alt="Github">
+          </a>
+        </li>
+        <li class="footer__social-link-item">
+          <a href="https://www.linkedin.com/in/isaac-ikimi-solutions-2203bb322">
+            <img src="./images/linkedin.svg" title="Link to Linkedin Profile" class="footer__social-image" alt="Linkedin">
+          </a>
+        </li>
+      </ul>
+
+  </footer>
+
+  <a href="#top" class="back-to-top" title="Back to Top">
+    <img src="./images/arrow-up.svg" alt="Back to Top" class="back-to-top__image"/>
+  </a>
+  <script src="./index.js"></script>
+</body>
+
+</html>
