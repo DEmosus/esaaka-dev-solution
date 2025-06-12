@@ -517,8 +517,8 @@ body:not(.user-is-tabbing) a:focus {
 /* The scrolling container */
 .skill__logos {
   display: flex;
+  gap: var(--gutter-normal);
   filter: invert(100%) grayscale(100%) opacity(0.8);
-  /* Auto-scroll animation: adjust duration (e.g. 20s) as needed */
   animation: scroll 20s linear infinite;
 }
 
@@ -559,8 +559,6 @@ body:not(.user-is-tabbing) a:focus {
     margin-right: var(--gutter-medium);
   }
 }
-
-
 
 /* ----- About ----- */
 .about__content {
