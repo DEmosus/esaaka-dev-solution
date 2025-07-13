@@ -76,8 +76,8 @@ Welcome to my **portfolio website**, showcasing a collection of diverse projects
 If you have any questions or want to collaborate, feel free to reach out!  
 
 📧 **Email:** esaakadevsolutions@gmail.com  
-🌐 **Website:** [your-website.com](https://demosus.github.io/esaaka-dev-solution/)  
-💼 **LinkedIn:** [your-linkedin-profile](www.linkedin.com/in/isaac-ikimi-2203bb322)
+🌐 **Website:** [My-website](https://demosus.github.io/esaaka-dev-solution/)  
+💼 **LinkedIn:** [My-linkedin-profile](www.linkedin.com/in/isaac-ikimi-2203bb322)
 
 ---
 
