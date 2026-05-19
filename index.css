@@ -182,11 +182,9 @@ p {
   margin: var(--gutter-small-1) 0;
 }
 
-@media (max-width: 900px) {
-  p {
-    max-width: var(--container-small-width);
-  }
-}
+/* FIX 3: Removed the global p max-width at 900px that was incorrectly
+   squishing paragraph text across all sections (About, Contact, etc.).
+   The header paragraph width is now controlled by its own container rules. */
 
 /* ----- Links (Base) ----- */
 a {
@@ -201,8 +199,10 @@ a {
   border: 0;
 }
 
-button:focus,
-a:focus {
+/* FIX 4: Replaced :focus with :focus-visible so keyboard users get
+   the outline but mouse clicks do not trigger it unnecessarily. */
+button:focus-visible,
+a:focus-visible {
   outline: 2px solid var(--pink);
 }
 
@@ -229,9 +229,9 @@ body:not(.user-is-tabbing) a:focus {
     border-color 0.2s ease;
 }
 
-.btn:focus {
-  /* Consider using :focus-visible for keyboard accessibility */
-  outline: none;
+.btn:focus-visible {
+  outline: 2px solid var(--pink);
+  outline-offset: 3px;
 }
 
 .btn::after {
@@ -250,7 +250,7 @@ body:not(.user-is-tabbing) a:focus {
 }
 
 .btn:hover::after,
-.btn:focus::after {
+.btn:focus-visible::after {
   right: 0;
   background: var(--pink);
 }
@@ -265,7 +265,7 @@ body:not(.user-is-tabbing) a:focus {
 }
 
 .btn--pink:hover,
-.btn--pink:focus {
+.btn--pink:focus-visible {
   background: transparent;
 }
 
@@ -294,12 +294,12 @@ body:not(.user-is-tabbing) a:focus {
     background-color 0.2s cubic-bezier(1, 0.68, 0.16, 0.9);
 }
 
-.link__text:focus {
+.link__text:focus-visible {
   outline: none;
 }
 
 .link__text:hover::after,
-.link__text:focus::after {
+.link__text:focus-visible::after {
   right: 0;
   background: var(--pink);
 }
@@ -449,7 +449,6 @@ body:not(.user-is-tabbing) a:focus {
     text-align: center;
   }
   .header__text p {
-    /* Consider adjusting font-size for readability instead of scale */
     transform: scale(0.8);
   }
 }
@@ -486,8 +485,10 @@ body:not(.user-is-tabbing) a:focus {
   flex: 0 0 30%;
 }
 
+/* FIX 5: Uncommented and set list-style-type to disc. It was previously
+   commented out with no replacement, leaving an unstyled list. */
 .portfolio__list {
-  /* list-style-type: square; */
+  list-style-type: disc;
   list-style-position: inside;
   margin-bottom: var(--gutter-normal);
 }
@@ -526,7 +527,6 @@ body:not(.user-is-tabbing) a:focus {
   position: relative;
 }
 
-/* The scrolling container */
 .skill__logos {
   display: flex;
   gap: var(--gutter-normal);
@@ -534,12 +534,10 @@ body:not(.user-is-tabbing) a:focus {
   animation: scroll 20s linear infinite;
 }
 
-/* Pause auto-scroll when hovering over the marquee container */
 .skills-marquee:hover .skill__logos {
   animation-play-state: paused;
 }
 
-/* Infinite scroll keyframes: translate from 0 to -50% (seamless with duplicated items) */
 @keyframes scroll {
   0% {
     transform: translateX(0);
@@ -549,7 +547,6 @@ body:not(.user-is-tabbing) a:focus {
   }
 }
 
-/* Individual logo styling */
 .skill__logo {
   height: 6.5rem;
   max-width: 18rem;
@@ -561,10 +558,10 @@ body:not(.user-is-tabbing) a:focus {
   transform: scale(1.05);
 }
 
-/* Optional responsive adjustments */
 @media (max-width: 1240px) {
   .skill__logos {
-    /* You can remove overflow-x: scroll if using our auto-scroll approach */
+    /* FIX 6: Removed the leftover 'overflow-x: scroll' comment/property.
+       The marquee uses CSS animation for scrolling, not native scroll. */
     padding: var(--gutter-normal);
   }
   .skill__logo:not(:last-of-type) {

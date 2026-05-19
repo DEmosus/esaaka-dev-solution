@@ -1,21 +1,22 @@
 /* -----------------------------------------
-   Focus Outline for Keyboard Users 
+   Focus Outline for Keyboard Users
 ----------------------------------------- */
+
 const handleFirstTab = (e) => {
   if (e.key === "Tab") {
     document.body.classList.add("user-is-tabbing");
-    self.removeEventListener("keydown", handleFirstTab);
-    self.addEventListener("mousedown", handleMouseDownOnce);
+    window.removeEventListener("keydown", handleFirstTab);
+    window.addEventListener("mousedown", handleMouseDownOnce);
   }
 };
 
 const handleMouseDownOnce = () => {
   document.body.classList.remove("user-is-tabbing");
-  self.removeEventListener("mousedown", handleMouseDownOnce);
-  self.addEventListener("keydown", handleFirstTab);
+  window.removeEventListener("mousedown", handleMouseDownOnce);
+  window.addEventListener("keydown", handleFirstTab);
 };
 
-self.addEventListener("keydown", handleFirstTab);
+window.addEventListener("keydown", handleFirstTab);
 
 /* -----------------------------------------
    Back-to-Top Button Visibility on Scroll
@@ -29,8 +30,8 @@ const alterStyles = (isRendered) => {
   backToTopButton.style.transform = isRendered ? "scale(1)" : "scale(0)";
 };
 
-self.addEventListener("scroll", () => {
-  if (self.scrollY > 700) {
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 700) {
     isBackToTopRendered = true;
     alterStyles(isBackToTopRendered);
   } else {
@@ -47,18 +48,15 @@ const marquee = document.querySelector(".skills-marquee");
 if (marquee) {
   const logos = marquee.querySelector(".skill__logos");
   let manualScrollRAF = null;
-  let manualDirection = "none"; // "left", "right", or "none"
+  let manualDirection = "none";
 
-  // Calculate the distance for a seamless loop.
-  const scrollWidth = logos.scrollWidth / 2; // Because the logos are duplicated
-  const speed = 1.5; // Adjust this value to control manual scroll speed
+  const scrollWidth = logos.scrollWidth / 2;
+  const speed = 1.5;
 
-  // Pause the CSS animation on mouseenter
   marquee.addEventListener("mouseenter", () => {
     logos.style.animationPlayState = "paused";
   });
 
-  // On mousemove, determine manual scroll direction
   marquee.addEventListener("mousemove", (e) => {
     const { left, width } = marquee.getBoundingClientRect();
     const x = e.clientX - left;
@@ -69,38 +67,53 @@ if (marquee) {
     } else {
       manualDirection = "none";
     }
+
     if (manualDirection !== "none" && !manualScrollRAF) {
       manualScroll();
     }
   });
 
-  // On mouseleave, cancel manual control and resume CSS animation
   marquee.addEventListener("mouseleave", () => {
     manualDirection = "none";
     cancelAnimationFrame(manualScrollRAF);
     manualScrollRAF = null;
+
+    const computedStyle = window.getComputedStyle(logos).transform;
+    const matrix = new DOMMatrixReadOnly(computedStyle);
+    const currentX = matrix.m41;
+
+    const progress = Math.abs(currentX) / scrollWidth;
+    const durationSeconds = 20;
+    const delay = -(progress * durationSeconds);
+
     logos.style.transform = "";
+    logos.style.animationDelay = `${delay}s`;
     logos.style.animationPlayState = "running";
   });
 
-  // Manual scroll function
   const manualScroll = () => {
-    // Get the current X translation value
+    if (manualDirection === "none") {
+      cancelAnimationFrame(manualScrollRAF);
+      manualScrollRAF = null;
+      return;
+    }
+
     const computedStyle = window.getComputedStyle(logos).transform;
-    let matrix = new DOMMatrixReadOnly(computedStyle);
-    let currentX = matrix.m41; // current translateX value
+    const matrix = new DOMMatrixReadOnly(computedStyle);
+    let currentX = matrix.m41;
 
     if (manualDirection === "left") {
-      currentX += speed; // moving the container to the right
+      currentX += speed;
       if (currentX > 0) {
         currentX = currentX - scrollWidth;
       }
     } else if (manualDirection === "right") {
-      currentX -= speed; // moving the container to the left
+      currentX -= speed;
       if (currentX <= -scrollWidth) {
         currentX = 0;
       }
     }
+
     logos.style.transform = `translateX(${currentX}px)`;
     manualScrollRAF = requestAnimationFrame(manualScroll);
   };
